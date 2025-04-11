@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Wheels - Pushing The Limits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          /* background-image: url(images/bg.jpg); */
+          color: white;
+          font-family: sans-serif;
+          opacity: 0;
+          animation: fadeIn 2s ease-in-out forwards;
+        }
+    
+        @keyframes fadeIn {
+          to {
+            opacity: 1;
+          }
+        }
+      </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="images/logo.png" alt="Hot Wheels Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">PRODUCT</a></li>
+                    <li><a href="#">BRAND</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+                <button class="book-btn">BOOK WHEEL</button>
+            </nav>
+        </header>
+
+        <div class="content">
+            <h1 class="flame"  style="font-family:'Orbitron';"><b><i>HOT WHEELS</i></b></h1>
+            <br>
+            <div class="tagline">
+                PUSHING THE LIMITS<br>
+                FEELING THE RUSH
+            </div>
+
+            <div class="car-container">
+                <img src="/images/redcar.png" alt="Red F1 Car" class="rcar" id="redCar">
+                <img src="/images/blackcar.png" alt="Black F1 Car" class="bcar" id="blackCar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const redCar = document.getElementById('redCar');
+            const blackCar = document.getElementById('blackCar');
+
+            // Initial animation to bring red car to center
+            setTimeout(() => {
+                redCar.style.transform = 'translateX(0)';
+            }, 500);
+
+            // Car switching functionality
+            redCar.addEventListener('click', function() {
+                // Move red car off screen to the right
+                redCar.style.transform = 'translateX(150%)';
+                redCar.style.opacity = '0';
+
+                // After a short delay, move black car from left to center
+                setTimeout(() => {
+                    blackCar.style.opacity = '1';
+                    blackCar.style.transform = 'translateX(0)';
+                }, 500); // Match the transition duration
+            });
+
+            blackCar.addEventListener('click', function() {
+                // Move black car off screen to the left
+                blackCar.style.transform = 'translateX(-150%)';
+                blackCar.style.opacity = '0';
+
+                // After a short delay, move red car from left to center
+                setTimeout(() => {
+                    redCar.style.opacity = '1';
+                    redCar.style.transform = 'translateX(0)';
+                }, 500); // Match the transition duration
+            });
+        });
+    </script>
+    <script>   
+        document.addEventListener('keydown', function(e) {
+      // Check for ↓ Arrow or Spacebar
+      if (e.key === 'ArrowDown' || e.code === 'Space' || e.key === 'MouseScroll') {
+        window.location.href = 'page3.html';
+      }
+    });
+        document.addEventListener("wheel",function(){
+            window.location.href='page3.html';
+        })
+    </script>
+    
+</body>
+</html>

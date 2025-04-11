@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hot Wheels Loading Screen</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styleindex.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #111;
+        color: white;
+        font-family: sans-serif;
+        animation: fadeOut 2s ease-in-out forwards;
+        animation-delay: 3s; /* Wait before transition starts */
+      }
+
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen Container -->
+    <div class="loading-screen" id="loadingScreen">
+      <img src="/images/tyre.png" alt="Tyre" class="tyre-animation" id="tyre" />
+      <img
+        src="/images/logo.png"
+        alt="Hot Wheels Logo"
+        class="logo-animation"
+        id="logo"
+      />
+    </div>
+
+    <!-- Main Content (hidden during loading) -->
+    <div class="main-content" id="mainContent">
+      <!-- Your main page content will go here -->
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

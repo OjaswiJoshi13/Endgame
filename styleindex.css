@@ -1,0 +1,65 @@
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.tyre-animation {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    animation: slideInFromLeft 2.5s ease-out forwards;
+}
+
+
+.logo-animation {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    animation: slideInFromRight 2.5s ease-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100vw);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.main-content {
+    display: none;
+}
