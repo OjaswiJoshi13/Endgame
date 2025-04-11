@@ -15,12 +15,13 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
-
 .container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    width: 1200px; /* Fixed width */
+  }
+.container {
+    width: 90%; /* Percentage of parent */
+    max-width: 1200px; /* Maximum width */
+    margin: 0 auto;
 }
 
 header {
@@ -220,3 +221,78 @@ color: transparent;
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(255, 107, 0, 0.7);
 }
+
+/* For tablets (portrait) */
+@media (max-width: 768px) {
+    /* Navbar adjustments */
+    .navbar {
+      flex-direction: column;
+      padding: 10px;
+    }
+    
+    .nav-links {
+      margin-top: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    /* Content adjustments */
+    .hero, .app-promo {
+      flex-direction: column;
+    }
+    
+    .hero-content, .app-text, .hero-image, .app-image {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    /* Grid adjustments */
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Footer adjustments */
+    .footer-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 480px) {
+    /* Header adjustments */
+    .logo {
+      max-width: 100px;
+    }
+    
+    .book-btn {
+      padding: 8px 15px;
+      font-size: 14px;
+    }
+    
+    /* Grid adjustments */
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+    
+    /* Merchandise section */
+    .merch-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    /* Newsletter */
+    .form-group {
+      flex-direction: column;
+    }
+    
+    .email-input, .submit-btn {
+      width: 100%;
+      margin: 5px 0;
+    }
+    
+    /* Footer */
+    .footer-container {
+      grid-template-columns: 1fr;
+    }
+  }

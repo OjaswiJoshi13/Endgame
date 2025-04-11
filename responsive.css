@@ -1,0 +1,294 @@
+/* === RESPONSIVE CSS FOR HOT WHEELS WEBSITE === */
+
+/* Base responsive settings */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Ensure images are responsive by default */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* === MOBILE MENU === */
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+  /* === GLOBAL RESPONSIVE STYLES === */
+  
+  /* Large devices (desktops) */
+  @media (max-width: 1200px) {
+    .container {
+      width: 95%;
+      max-width: 1000px;
+    }
+    
+    /* Adjust car images on main slide */
+    .rcar, .bcar {
+      width: 70%;
+    }
+    
+    /* Adjust hero section spacing */
+    .hero {
+      padding: 40px 50px;
+    }
+  }
+  
+  /* Medium devices (tablets) */
+  @media (max-width: 992px) {
+    /* Adjust header components */
+    header, .navbar {
+      padding: 15px 20px;
+    }
+    
+    .logo img {
+      width: 120px;
+    }
+    
+    /* Update content spacing */
+    .content {
+      padding: 30px 20px;
+    }
+    
+    .tagline {
+      font-size: 44px;
+      margin-bottom: 40px;
+    }
+    
+    /* Hero section adjustments */
+    .hero {
+      flex-direction: column;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    .hero-content {
+      max-width: 100%;
+      margin-bottom: 30px;
+    }
+    
+    .hero-image img {
+      height: auto;
+      max-height: 400px;
+      margin: 0 auto;
+    }
+    
+    /* Grid adjustments */
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .play-area {
+      grid-column: 1 / span 2;
+      grid-row: 3;
+      height: 300px;
+    }
+    
+    /* App promo section */
+    .app-promo {
+      flex-direction: column;
+      padding: 40px 20px;
+    }
+    
+    .app-text {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .app-image {
+      width: 100%;
+    }
+    
+    /* Footer layout adjustment */
+    .footer-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  }
+  
+  /* Small devices (landscape phones) */
+  @media (max-width: 768px) {
+    /* Show mobile menu toggle */
+    .mobile-menu-toggle {
+      display: block;
+    }
+    
+    /* Hide desktop nav by default */
+    nav ul {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 90;
+    }
+    
+    nav ul.show {
+      display: flex;
+    }
+    
+    nav ul li {
+      margin: 15px 0;
+    }
+    
+    nav ul li a {
+      font-size: 20px;
+    }
+    
+    /* Header structure */
+    header, .navbar {
+      justify-content: space-between;
+    }
+    
+    .navbar {
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+    
+    /* Adjust logo and buttons */
+    .logo img {
+      width: 100px;
+    }
+    
+    .book-btn {
+      padding: 8px 15px;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    
+    /* Content adjustments */
+    .tagline {
+      font-size: 32px;
+    }
+    
+    /* Car container adjustments */
+    .car-container {
+      height: 150px;
+    }
+    
+    #redCar {
+      height: auto;
+      max-width: 90%;
+    }
+    
+    /* Grid layout */
+    .grid-container {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    
+    .card {
+      height: 250px;
+    }
+    
+    .play-area {
+      grid-column: 1;
+      grid-row: 3;
+      height: 250px;
+    }
+    
+    /* Merch section */
+    .merch-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .merch-item {
+      width: 100%;
+      max-width: 280px;
+      margin-bottom: 20px;
+    }
+    
+    /* Newsletter */
+    .form-group {
+      flex-direction: column;
+    }
+    
+    .email-input, .submit-btn {
+      width: 100%;
+      border-radius: 4px;
+    }
+    
+    .email-input {
+      margin-bottom: 10px;
+    }
+    
+    /* Footer */
+    .footer-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Extra small devices (phones) */
+  @media (max-width: 576px) {
+    /* Header adjustments */
+    .logo img {
+      width: 80px;
+    }
+    
+    /* Content spacing */
+    .content {
+      padding: 20px 10px;
+    }
+    
+    /* Text size adjustments */
+    .tagline {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    
+    .main-heading .flame {
+      font-size: 32px;
+    }
+    
+    .description {
+      font-size: 16px;
+    }
+    
+    /* Card sizing */
+    .card {
+      height: 200px;
+    }
+    
+    .card-title {
+      font-size: 1.2rem;
+    }
+    
+    /* App promo */
+    .app-heading {
+      font-size: 28px;
+    }
+    
+    .app-download {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* Footer */
+    .footer-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .footer-section {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    
+    .social-icons {
+      justify-content: center;
+    }
+  }
