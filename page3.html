@@ -271,6 +271,83 @@
 
     <script>
 
+// --- IMPROVED NAVIGATION FOR PAGE 3 ---
+let isScrolling = false;
+
+// Mouse wheel navigation with debounce (for Windows)
+document.addEventListener("wheel", function(e) {
+    // Only trigger navigation when at the top of the page
+    if (window.scrollY <= 10) { // Small threshold to account for slight variations
+        if (isScrolling) return;
+        
+        if (e.deltaY < 0) { // Scrolling up
+            isScrolling = true;
+            
+            // Delay to prevent multiple scroll events
+            setTimeout(function() {
+                isScrolling = false;
+            }, 800); // 800ms cooldown
+            
+            window.location.href = 'carSlide.html';
+        }
+    }
+});
+
+// Touch swipe detection for mobile
+let touchStartY = 0;
+let touchEndY = 0;
+const minSwipeDistance = 50; // Minimum distance for swipe detection
+
+document.addEventListener('touchstart', function(e) {
+    touchStartY = e.changedTouches[0].screenY;
+});
+
+document.addEventListener('touchend', function(e) {
+    // Only trigger navigation when at the top of the page
+    if (window.scrollY <= 10) { // Small threshold to account for slight variations
+        if (isScrolling) return;
+        
+        touchEndY = e.changedTouches[0].screenY;
+        const swipeDistance = touchEndY - touchStartY;
+        
+        if (Math.abs(swipeDistance) < minSwipeDistance) return; // Ignore small movements
+        
+        if (swipeDistance > 0) { // Swipe down
+            isScrolling = true;
+            
+            // Delay to prevent multiple swipe events
+            setTimeout(function() {
+                isScrolling = false;
+            }, 800); // 800ms cooldown
+            
+            window.location.href = 'carSlide.html';
+        }
+    }
+});
+
+// Add indicator for going back up (just for the top section)
+document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        const indicator = document.createElement('div');
+        indicator.innerHTML = '<div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; color: white; text-align: center;"><i class="fa fa-chevron-up" style="font-size: 24px;"></i><br><span style="font-size: 12px;">Swipe Up</span></div>';
+        heroSection.style.position = 'relative';
+        heroSection.appendChild(indicator);
+    }
+});
+
+// Add animation to show when user can navigate back
+window.addEventListener('scroll', function() {
+    const indicator = document.querySelector('.hero div[style*="bounce"]');
+    if (indicator) {
+        if (window.scrollY <= 10) {
+            indicator.style.opacity = '1';
+        } else {
+            indicator.style.opacity = '0';
+        }
+    }
+});
+
 document.addEventListener('keydown', function(e) {
       // Check for ↓ Arrow or Spacebar
       if (e.key === 'ArrowUp') {
